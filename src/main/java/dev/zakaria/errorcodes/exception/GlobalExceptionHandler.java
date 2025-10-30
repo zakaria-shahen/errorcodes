@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(BusinessException.class)
 	public ProblemDetail handleBusinessException(BusinessException ex) {
 		var errorCode = ex.getErrorCode();
-		log.info("throws {} [{}]: {}", errorCode.errorCode, errorCode.internalErrorCode, ex.getCaller());
+		log.info("Error occurred {} [{}]: {}", errorCode.errorCode, errorCode.internalErrorCode, ex.getCaller());
 		return ex.getBody();
 	}
 

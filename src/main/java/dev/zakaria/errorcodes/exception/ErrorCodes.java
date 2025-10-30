@@ -1,5 +1,8 @@
 package dev.zakaria.errorcodes.exception;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /// ErrorFormat:
 ///
 /// ErrorCode (for response): `[service-name]_[random_number_for_each_system]_[random-number-for-each-code]`
@@ -13,6 +16,14 @@ public enum ErrorCodes {
 	// ..etc
 	;
 
+
+	private static final Map<String, ErrorCodes> ERROR_CODES_MAP = new HashMap<>();
+	static {
+		for (ErrorCodes errorCodes : ErrorCodes.values()) {
+			ERROR_CODES_MAP.put(errorCodes.errorCode, errorCodes);
+		}
+	}
+
 	final String errorCode;
 	final String internalErrorCode;
 	final String title;
@@ -23,5 +34,9 @@ public enum ErrorCodes {
 		this.internalErrorCode = internalErrorCode;
 		this.title = title;
 		this.detail = detail;
+	}
+
+	public static ErrorCodes getErrorCode(String errorCode) {
+		return ERROR_CODES_MAP.get(errorCode);
 	}
 }

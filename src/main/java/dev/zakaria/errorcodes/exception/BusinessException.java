@@ -15,6 +15,7 @@ public class BusinessException extends ErrorResponseException {
 
 	public BusinessException(ErrorCodes errorCodes) {
 		// If you're using Java version earlier than 25, you can extract this into a static method.
+		// TODO: You can apply i18n here and make the title and detail values configurable properties.
 		var problemDetail = ProblemDetail.forStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		problemDetail.setTitle(errorCodes.title);
 		problemDetail.setDetail(errorCodes.detail);
