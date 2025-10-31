@@ -1,3 +1,5 @@
+# Centralized Error Code Handling & Logging in Spring: WebFlux, WebMVC & Beyond
+
 ## ErrorCodes Demo*
 
 - In this demo project, I share a new approach to handling error codes in your applications, along with a new method for logging the ErrorCodes and the class and line number where the error occurred.
